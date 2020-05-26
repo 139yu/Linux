@@ -32,7 +32,9 @@ fdisk -l
 在Linux系统下，硬件设备都以文件形式存在。不同硬件设备有不同的文件类型，硬件与系统下相对应得文件叫设备文件
 Linux把设备文件存放在`/dev`下面，设备文件得命名方式是主设备号加次设备号；主设备说明设备类型，次设备号说明具体指哪一个设备
 #### 常见文件系统类型
+
 <img src="https://img-blog.csdnimg.cn/20200523175126415.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 #### 1.2.3设备的挂载使用
 Linux下挂载的命令是`mount`，格式如下
 ```shell
@@ -47,31 +49,43 @@ umount 挂载目录
 ### 文件系统结构
 Linux将所有内容都以文件的形式展现出来，通过一个树形结构统一管理和组织这些文件。
 Linux只有一个根目录，根目录下又有很多的子目录，如图所示：
+
 <img src="https://img-blog.csdnimg.cn/20200524145448282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 #### 目录功能
 - `/ext`
 这个目录主要用于存放系统管理相关的配置文件以及子目录，其中比较重要的有系统初始化文件`/etx/rc`、用户信息文件`/ext/passwd`等，相关的网络配置文件和服务启动文件也在这个目录下。具体如下图：
+
 <img src="https://img-blog.csdnimg.cn/20200524145821466.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200524145913524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200524150023842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200524150043816.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 - `/usr`
 此目录主要用于存放应用程序和文件。安装的一些软件默认安装到此目录。具体如图所示：
+
 <img src="https://img-blog.csdnimg.cn/20200524150314774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200524150337559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 - `/var`
 该目录主要用于存放系统运行以及软件运行的日志信息。具体如图所示：
+
 <img src="https://img-blog.csdnimg.cn/20200524150636450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70"
 <img src="https://img-blog.csdnimg.cn/20200524150648111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70"
+
 - `/dev`
 该目录包含系统所有的设备文件，具体如图所示：
+
 <img src="https://img-blog.csdnimg.cn/20200524150743257.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200524150752814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 - `proc`
 这是一个虚拟目录，存在于内存中，所有的信息都是内存的映射。通过 此目录，可以和内核内部数据结构进行交互，获取有关进程的有用信息，也可以在系统运行中修改内核参数，具体看图：
+
 <img src="https://img-blog.csdnimg.cn/20200524151124463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200524151136377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200524151157912.png">
+
 - 其他目录
 `/boot`：该目录存放的是启动Linux时的一些文件，如果遭到破坏，系统将无法启动
 `/bin`和`/sbin`：这两个目录存放的是一些可执行的二进制文件。`/bin`下存放了一些我们经常使用的Linux目录，`/sbin`中的`s`是`super`，该目录存放的是一些超级用户才能执行的命令
@@ -156,7 +170,9 @@ systemctl disable httpd.service#关闭开机启动
 systemctl status httpd.service
 ```
 `systemctl`管理系统电源
+
 <img src="https://img-blog.csdnimg.cn/20200524163741106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 ### shell简介
 `shell`是围绕在Linux内核之外的一个`壳`程序，用户在操作系统上完成的所有任务都是通过`shell`与Linux系统内核的交互来实现的
 - `shell`的命令格式
@@ -202,8 +218,17 @@ command [options] [arguments]
 输入某个命令一部分后，按`tab`键，`shell`就会根据系统环境变量信息提示出与用户输入命令相似的所有命令和文件
 ### 系统管理与维护命令
 #### `ls`命令
-显示指定工作目录下的内容，列出工作目录所含的文件及子目录，语法：`ls [选项] [路径或文件]`，具体如下图：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200524211558735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200524211615163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200524211628767.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)
+显示指定工作目录下的内容，列出工作目录所含的文件及子目录，语法：
+```shell
+`ls [选项] [路径或文件]`
+```
+选项说明如下图：
+
+<img src="https://img-blog.csdnimg.cn/20200524211558735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200524211615163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200524211628767.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
+
 #### `pwd`命令
 显示当前工作目录，语法：
 ```shell
@@ -222,7 +247,12 @@ date [选项] 显示时间格式（以+开头，后面接时间格式）
 # -d：date的缩写，显示描述的日期
 ```
 时间格式表如下图所示：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525132754319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525132812524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525132826586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525132837283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)
+
+<img src="https://img-blog.csdnimg.cn/20200525132754319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525132812524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)">
+<img src="https://img-blog.csdnimg.cn/20200525132826586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525132837283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 ##### `passwd`命令
 该命令用于设置用户密码，语法如下
 ```shell
@@ -263,7 +293,10 @@ who [optional] [file]
 # 该命令输出格式：名称 [状态] 终端 时间 [活动] [进程标识（主机名）]
 ```
 该命令选项：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525171649544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525171830115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)
+
+<img src="https://img-blog.csdnimg.cn/20200525171649544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525171830115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
 在Linux中，`who`通常通过`/var/run/utmp`文件来获取信息，如果`[file]`选项指定另一个文件，`who`就会读取该文件来获取信息
 #### `w`命令
 用于显示登录到系统的用户信息，语法：
@@ -348,7 +381,14 @@ top [optional]
 # -n：top输出信息更新次数，完成后将退出top命令
 ```
 交互式命令及说明
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525214003179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525214016230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525214043362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525214056495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525214121216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20200525214129808.png)
+
+<img src="https://img-blog.csdnimg.cn/20200525214003179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525214016230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525214043362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525214056495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525214121216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200525214129808.png">
+
 ### 文件管理与编辑命令
 #### `mkdir`命令
 创建一个目录。语法：
@@ -358,3 +398,33 @@ mkdir [optional] 目录名
 # -m：对新建目录设置存取权限
 # -p：可以指定一个路径名称。若路径中的某些目录尚未存在，加上此选项后，系统将自动创建哪些不存在的目录，也就是一次可创建多个目录
 ```
+#### `more`命令
+查看一个一屏无法展示的文本文件时，可以使用`more`命令。`more`每次显示一屏，按`enter`键再显示文件的一行，按空格键则继续显示下一屏文本内容。语法：
+```shell
+more [optional] 文件名
+# 选项说明：
+# -d：在屏幕底部more提示符后显示友好信息，
+# -s：将输出中的多个空行减少为只有一个空行输出
+# -p：先清除屏幕以前的信息，在显示文本
+# -c：显示文件时，每屏显示都清除屏幕先前的信息，然后从最顶端显示出来
+```
+#### `cat`命令
+用来将文件的内容输出到标准输出，同时还可用来连接合并文件。语法：
+```shell script
+cat [optional] 文件名
+cat 文件1 文件2>文件3 #将文件1和文件2的内容合并到文件3中，如果文件3中有其他内容则被覆盖，如果文件不存在该命令会自动创建。
+# 选项说明：
+# -A：将文件中的制表符显示为“^|”，同事在每行末尾显示一个$符号
+# -b：将文件中的所有非空行按序号编号，编号从1开始
+```
+#### `diff`命令
+比较文件差异。该命令以逐行的方式比较文本文件的异同，如果比较的是目录，则比较目录中相同文件名的文件，不会比较其中的子目录。语法：
+```shell script
+diff [optional] 文件1 文件2
+# 选项说明：
+# -c：显示全部内容并标出不同之处
+# -b：忽略行尾的空格，同时字符串中的一个或多个空格将被视为相同
+# -r：当文件1和文件2为目录时，会比较子目录中的文件
+# -s：当两个文件相同时，显示相同信息
+```
+#### `grep`命令
