@@ -461,3 +461,57 @@ touch [optional] 设定的时间 文件
 ```
 #### `ln`命令
 用来在文件或目录之间创建链接
+Linux下有两种链接，一种是硬链接，一种是软链接，默认情况下`ln`命令产生的是硬链接
+- 硬链接
+是指通过文件的inode来进行链接。在Linux的文 件系统中，保存在磁盘的所有类型的文件都会分配一个编号，这个编号称为inode号(Inode Index)。多个文件指向同一个inode在Linux系统中是允许的，这就是所谓的硬链接。硬链接的作用是允许一个文件拥有多个有效的路径名，这样用户就可以对一些重要文件建立硬链接，以防止误删除操作。因为对应该文件的inode有一个以上的链接，所以只删除一个链接并不影像inode本身和其他链接，只有当最后一个链接被删除后，文件的数据块及目录的链接才会释放，也就是说，此时文件才会被真正删除。
+- 软链接
+也叫符号链接，类似与Windows中的快捷方式，因此软链接是一个指向真正的文件或者目录位置的符号连接
+
+语法：
+```shell script
+ln [optional] 源文件 目标文件链接名
+# 选项说明：
+# -f：如果在目标位置存在与链接名相同的文件，这个文件将被删除
+# -s：进行软链接
+# -d：允许系统管理员硬链接自己的目录
+# -b：对将在链接时会被覆盖或者删除的文件进行备份
+```
+#### `file`命令
+用来显示文件的类型。对于长度为0的文件，将识别为空文件；对于符号连接文件，默认情况下将显示符号链接引用的真实文件路径。语法：
+```shell script
+file [optional] 文件名
+# 选项说明：
+# -b：显示文件类型结果，不显示对应文件名
+# -L：直接显示符号链接所指向文件的类型
+# -z：显示压缩文件的信息
+# -d：如果文件不是常规文件，则不进一步对文件类型进行分类
+```
+#### `cp`命令
+将给出的文件或目录复制到另一个文件或目录中。语法：
+```shell script
+cp [optional] 源文件或目录 目标文件或目录
+# 选项说明：
+# -a：在复制目录时使用。它保留所有的信息，包括文件链接、文件属性，并递归的复制目录
+# -r：若给出的源文件是一个目录，此时cp将递归复制该目录下所有子目录和文件。此时目标文件必须成为一个目录名
+# -d：复制时保留链接，这样不会失去链接文件
+# -p：保留文件的修改时间和存取权限
+# -i：如果已经有相同文件名的目标文件，则提示用户是否覆盖
+```
+#### `find`命令
+在指定的路径下查找指定的文件。语法：
+```shell script
+find path-name [-optional] [-print -exec -ok 命令 {} \;]
+# 参数说明：
+# path-name：查找的目录路径，可以用“.“表示当前路径
+# -optional：控制搜索方式
+# -print：将搜索结果输出到标准输出
+# -exec：对搜索出符合条件的文件执行所给出的Linux命令，而不询问用户是否需要执行该命令。{}表示shell命令的选项，即为所查找到的文件，命令的末尾以”;“结束
+# -ok：对搜索出符合条件的文件执行所给出的Linux命令，它会询问用户是否执行
+```
+选项说明：
+
+<img src="https://img-blog.csdnimg.cn/20200527175136722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200527175146873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200527175204314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" alt="">
+<img src="https://img-blog.csdnimg.cn/20200527175216495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" alt="">
+<img src="https://img-blog.csdnimg.cn/20200527175225620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" alt="">
