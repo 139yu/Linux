@@ -515,3 +515,17 @@ find path-name [-optional] [-print -exec -ok 命令 {} \;]
 <img src="https://img-blog.csdnimg.cn/20200527175204314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" alt="">
 <img src="https://img-blog.csdnimg.cn/20200527175216495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" alt="">
 <img src="https://img-blog.csdnimg.cn/20200527175225620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" alt="">
+
+#### `split`命令
+分割文档，将一个文件分割数个。语法：
+```shell script
+split [optional] [input_file] [output_file]
+# 选项说明：
+# -b size：指定分割出来的文件大小，size可加入单位，b代表512字节，k代表1KB，m代表1MB
+# -n：这里“n“指定分割的每个文件的长度，默认为1000行
+# -d：将split命令生成的文件序列以数字形式命名
+# -a：指定split命令生成的文件序列的长度，默认长度为2
+# 参数说明：
+# input_file：要分割的文件
+# output_file：分割出来的文件序列，split命令分割后生成的文件序列名依次为output_fileaa、output_fileab、output_fileac等，如果没有指定output_file，系统默认以”x”作为文件输出名
+```
