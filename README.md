@@ -1,4 +1,5 @@
 
+
 # Linux
 # Linux基础入门
 ### Linux硬件资源管理
@@ -577,3 +578,44 @@ unzip [optional] 压缩文件名
 
 <img src="https://img-blog.csdnimg.cn/20200528134524168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 
+####`gzip`和`gunzip`命令
+将一般的文件进行压缩或解压，压缩文预设的拓展名为“.gz”，`gunzip`就是`gzip`的硬链接，所以解压和压缩都可以使用`gzip`来实现
+`gzip`只能对文件进行压缩，不能压缩目录，即使指定压缩的目录，也只能压缩目录内的文件。语法：
+```shell script
+gzip [optionnal] 压缩（解压缩）的文档名
+# 选项说明：
+# -d：对压缩的文件进行解压
+# -r：递归式压缩指定目录以及子目录下的所有文件
+# -t：检查压缩文档的完整性
+# -v：对于每个压缩和解压缩的文档，显示相应的文件名和压缩比
+# -l：显示压缩文件的压缩信息，显示字段为压缩文档大小、未压缩文档大小，压缩比和未压缩文档名称
+# -num：用指定的数字配置压缩比，”-1“或”-fast“表示最低压缩级比，”-9“或”-best“表示最高压缩比。系统默认压缩比为6
+```
+#### `bzip`和`bunzip2`命令
+类似于`gzip`和`gunzip`命令，只能对文件进行压缩，对目录只能压缩目录下的所有文件，压缩完成后，在目录下生成以”.bz2“为后缀的压缩包。`bunzip2`是`bzip`的软连接。语法：
+```shell script
+bzip2 [optionnal] 压缩（解压缩）的文档名
+# 选项说明：
+# -d：执行解压缩，此时选项后面跟要解压缩的文件
+# -v：压缩或解压文件时显示详细信息
+# -k：bzip2在压缩或解压缩后，会删除原始文件，若要保留原始文件，可使用此选项
+# -f：在压缩或解压缩时，若输出文件与现有文件同名，预设不会覆盖现有文件。若要覆盖，就要使用此选项
+# -t：测试".bz2"压缩文件的完整性
+# -压缩级别：压缩级别可从1~9中选取，数字越大，压缩率越高
+```
+#### `tar`命令
+`tar`时Linux下经常使用的归档工具，对文件或者目录进行打包归档，归档成一个文件，但并不进行压缩。语法：
+```shell script
+tar [optional + 辅助选项] 文件或目录
+# tar主要选项说明：
+# -c：新建文件
+# -r：把要归档的文件追加到档案文件的末尾
+# -t：列出打包的档案文件中还原文件
+# -x：从打包的档案文件中还原出文件
+# -u：更新档案文件，用新建文件替换档案中的原始文件
+```
+辅助选项说明：
+
+<img src="https://img-blog.csdnimg.cn/20200601174624140.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/2020060117470169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200601174729361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
