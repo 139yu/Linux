@@ -619,3 +619,69 @@ tar [optional + 辅助选项] 文件或目录
 <img src="https://img-blog.csdnimg.cn/20200601174624140.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/2020060117470169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 <img src="https://img-blog.csdnimg.cn/20200601174729361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+
+#### `dd`命令
+该命令用来转换或复制文件，同时可以对设备进行备份。语法：
+```shell script
+dd if=input_file of=output_file bs=block_size count=number
+# 选项说明：
+# if：输入文件，可以是设备，例如磁盘某分区或整个磁盘
+# of：输出文件，也可以是设备
+# bs：指定一个block的大小，如果没有只当默认512字节
+# count：就是bs的数量
+```
+#### `cpio`命令
+该命令是通过重定向的方式将文件进行打包、备份、还原、恢复的工具，它可以解压以“.cpio”或者“.tar”结尾的文件。语法：
+```shell script
+cpio [optional] > 文件名或设备名
+cpio [optional] < 文件名或设备名
+# 选项说明：
+# -o：将文件复制、打包成文件或者将文件输出到设备
+# -i：将打包文件解压或者将设备上的备份还原到系统
+# -t：查看cpio打包的文件内容或者输出到设备上的文件内容
+# -v：显示打包过程中的文件名称
+# -d：在cpio还原文件的过程中，自动建立相应的目录
+# -c：一种较新的存储方式
+# -B：让没认块可以增大到5120字节，没人块为512字节，这样做的好处是可以加快存取速度
+```
+### 磁盘管理与维护
+#### `df`命令
+检查Linux系统磁盘空间占用情况。语法：
+```shell script
+df [optional] 
+# 选项说明：
+# -h：以容易理解的格式输出文件系统分区占用情况，如32KB、120MB、 60GB
+# -k：以KB大小为单位输出文件系统分区占用情况
+# -m：以MB大小为单位输出文件系统分区占用情况
+# -a：列出所有的文件系统分区，包含0大小的文件系
+# -i：列出文件系统分区的inode信息
+# -T：显示磁盘分区的文件系统类型
+```
+#### `du`ml命令
+显示文件或目录所占用的磁盘看见情况。语法：
+```shell script
+du [optional] 文件或目录
+# 选项说明：
+# -s：显示文件或者整个录的大小，单位为KB
+# -b：以字节为单位显示文件大小或者显示目录下所有文件的大小
+# -sh：以人性化的格式显示文件或者目录大小，如300MB、1.2GB等
+# -sm：以MB为单位显示文件或者目录大小
+```
+#### `fsck`命令
+检查文件系统并尝试修复错误。语法：
+```shell script
+fsck [optional] [-t<文件系统类型>] [设备名]
+# 选项说明：
+# -a：自动修复文件系统，没有任何提示
+# -r：采取交互式的修复模式，在执行修复时进行询问，让用户得以确认并决定处理方式
+# -A：依照/etc/fstab配置文件的内容，检查文件内所列的全部文件系统
+# -T：执行fsck指令时，不显示标题信息
+# -V：显示fsck指令的执行过程
+# -N：不执行指令，仅列出实际执行会进行的动作
+```
+在执行fsck命令修复某个文件系统时，这个文件系统下进行修复是极为不安全的，数据可能遭到破坏，也有可能下进行修复是极为不安全的，数据可能遭到破坏，也有可能损坏磁盘。
+#### `sync`命令
+强制把内存中的数据写回硬盘，以免数据丢失。语法：
+```shell script
+sync
+```
