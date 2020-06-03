@@ -1,5 +1,6 @@
 
 
+
 # Linux
 # Linux基础入门
 ### Linux硬件资源管理
@@ -685,3 +686,57 @@ fsck [optional] [-t<文件系统类型>] [设备名]
 ```shell script
 sync
 ```
+在Linux系统中， 修改过的操作会缓存到内存中，不会马上写入硬盘，等待适当的时候再从内存写入磁盘，这样可以提高系统读写效率。Linux 下默认每隔3秒系统自动执行一次sync操作，系统正常关机时也会执行sync操作，保证所有操作全部从内存写入磁盘。如果非法关机，系统内存信息无法及时同步到硬盘，就会造成数据丢失或者文件损坏，由此可见，Linux系统中正常关机是非常重要的
+#### `eject`命令
+该命令用来退出抽取式设备，如光盘磁带。如果该设备已经挂载，则`eject`先将设备卸载，然后再退出。语法：
+```shell script
+eject [optional] 设备名
+# 选项说明：
+# -c<光驱编号>：如果Linux系统中有多个光驱，要指定某个光驱
+# -d或--default：显示默认设备，而不是实际执行操作
+# -f或--floppy：退出抽取式软盘
+# -q或--tape：退出磁带
+# -r或--cdrom：退出光盘
+# -t或--trayclose：关闭光盘的托盘
+# -n或--noop：显示指定的设备名对应的设备文件路径。默认显示光盘的设备文件路径
+```
+#### `mount`和`umount`命令
+挂载以及卸载指定的文件系统。语法：
+```shell script
+mount [optional] [-L<标签>] [-o<选项>] [-t<文件系统类型>] [设备名] [挂载点]
+umount [挂载点]
+# 选项说明
+# -a：加载文件/et/fstab中指定的所有设备
+# -n：不将加载信息记录在/etc/mtab文件中
+# -r：以只读方式加载设备
+# -w：以可读写模式加载设备，属于mount默认设置
+# -f或-v：不加载设备，仅查看mount的挂载状态
+```
+参数说明：
+1) `L<标签>`：标签其实就是磁盘分区标识的别名，标签可以随便起名，这样便于记忆，在Linux 下磁盘分区的设备名比较难记，利用标签代替设备名，简单易记。
+2) `-o<选项>`：指定加载文件系统时的选项，选项如下：
+<img src="https://img-blog.csdnimg.cn/20200603174357451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" >
+<img src="https://img-blog.csdnimg.cn/20200603174442172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+3) `-t<文件系统类型>`：指定设备的文件系统类型，常用选项：
+<img src="https://img-blog.csdnimg.cn/20200603174725732.png">
+<img src="https://img-blog.csdnimg.cn/20200603174803628.png">
+4) 设备名：硬盘分区在Linux上的设备标识，类似于`/dev/sda1`、`/dev/sda1`等
+5) 挂载点：Linux系统下指定的某个目录
+### 网络设置与维护
+#### `ifconfig`命令
+该命令用来配置网络或显示当前网络接口状态。类似于Windows下的`ipconfig`命令，该命令必须由root用户来执行。语法：
+```shell script
+ifconfig [optional] [interface] [inet|up|down|netmask|addr|broadcast]
+# 选项说明：
+# -a：显示所有的网络接口信息，包括活动的和非活动的
+# -s：仅显示每个接口的摘要数据，是有关接口活动性的，每个接口显示一行信息
+# -v：如果某个网络接口出现错误，将返回错误信息，以帮助发现和处理故障
+```
+参数说明：
+1) `interface`：网络接口名，Linux 下的网络接口1名类似于eth0、eth1和Io等(在CentOS 7.x版本中，网络接口名变为类似enp0s1、enp0s2这样的标识)，分别表示第1块网卡、第2块网卡和回环接口。这是个可选项，如果不添加此选项，则显示系统中所有的网卡信息;如果添加此选项，则显示指定网卡信息。
+2) `up`：激活一个网络接口。
+3) `down`：与up相反，使指定的网络接口无效。
+4) `netmask`：为一个指定的网络接口指定子网掩码。
+5) `addr`：这里的"addr" 为网络接C ]指定的IP地址。
+6) `broadcast`：为指定的接口设置广 播地址。
+
