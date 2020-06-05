@@ -1,6 +1,7 @@
 
 
 
+
 # Linux
 # Linux基础入门
 ### Linux硬件资源管理
@@ -739,4 +740,33 @@ ifconfig [optional] [interface] [inet|up|down|netmask|addr|broadcast]
 4) `netmask`：为一个指定的网络接口指定子网掩码。
 5) `addr`：这里的"addr" 为网络接C ]指定的IP地址。
 6) `broadcast`：为指定的接口设置广 播地址。
-
+#### `scp`命令
+该命令是`secure copy`的缩写，用于将文件或者目录从一个Linux复制到另一个Linux系统下。该命令传输数据使用的是SSH协议，保证了数据传输的安全。语法：
+```shell script
+scp 远程用户名@ip地址:/文件绝对路径 本地Linux系统路径 # 将远程Linux系统上的文件或目录复制到本地
+scp 本地Linux系统文件路径 远程用户名@ip地址:远程系统文件绝对路径 # 将本地的文件或目录复制到远程Linux系统
+```
+#### `netstat`命令
+显示本机网络连接、运行端口和路由表等信息。语法：
+```shell script
+netstat [optional]
+```
+选项说明：
+<img src="https://img-blog.csdnimg.cn/20200605173450253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200605173545657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200605173630885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" >
+<img src="https://img-blog.csdnimg.cn/20200605173709467.png">
+#### `traceroute`命令
+traceroute命令用来显示网络数据包传输到指定主机的路径信息，追踪数据传输路由状况。预设数据包大小是38字节，用户可另行设置。它与Windows 下的tracert命令类似。语法：
+```shell script
+traceroute [optional] [远程主机名或ip地址] [数据包大小]
+# 选项说明：
+# -i<网络接口>：使用指定的网络接口发送数据包
+# -n：直接使用IP地址而不使用主机名
+# -v：详细命令的执行过程
+# -w<超时秒数>：设置等待远程主机回应的时间
+# -x：开启或关闭对数据包的准确性校验
+# -s<来源ip>：设置本地主机发送数据包的IP地址
+# -g<网关地址>：设置来源的路由网关，最多可设置8个
+```
+#### `telnet`
