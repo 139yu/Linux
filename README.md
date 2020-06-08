@@ -2,6 +2,7 @@
 
 
 
+
 # Linux
 # Linux基础入门
 ### Linux硬件资源管理
@@ -770,3 +771,37 @@ traceroute [optional] [远程主机名或ip地址] [数据包大小]
 # -g<网关地址>：设置来源的路由网关，最多可设置8个
 ```
 #### `telnet`
+该命令通过`telnet`协议与远程主机通信或获取远程主机对应端口的信息。与Windows下的`telnet`具有相同的功能。语法：
+```shell script
+telnet 主机名或ip地址端口
+```
+#### `wget`命令
+该命令用来从网络上下载某个软件。语法：
+```shell script
+wget [要下载的软件的网址]
+```
+### 文本编辑工具`vi`
+`vi`是Linux下标准的文本编辑器，也是Linux系统下最经常使用的文本件可视化编辑器。
+`vi`编辑程序有两种工作模式，即命令模式和文本输入模式。在命令模式下，输入的字符被解释未`vi`命令，通过`vi`命令可以转换到文本输入模式；在文本输入模式下，输入的字符作为正在编辑的文件的正文内容来接受，如果按Esc键则切换到`vi`命令模式。
+1) 用`vi`打开文件的命令选项：
+<img src="https://img-blog.csdnimg.cn/20200608172739536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70" >
+<img src="https://img-blog.csdnimg.cn/20200608172912538.png">
+2) `vi`命令模式下的命令选项，主要分为移动光标类命令、屏幕翻滚类命令、插入与删除文本类命令、搜索与替换类命令以及保护与退出命令。
+a) 移动光标类及其说明：
+<img src="https://img-blog.csdnimg.cn/20200608173235965.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/2020060817330135.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/2020060817333478.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200608173401295.png">
+b) 屏幕翻滚类及其说明：
+<img src="https://img-blog.csdnimg.cn/20200608173522832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200608173604790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+c) 插入与删除文本类命令：
+<img src="https://img-blog.csdnimg.cn/20200608173653782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200608173714787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200608173758142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200608173818250.png">
+d) 搜索及替换类命令：
+<img src="https://img-blog.csdnimg.cn/20200608173952500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+<img src="https://img-blog.csdnimg.cn/20200608174019455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
+e) 保存与退出类命令：
+<img src="https://img-blog.csdnimg.cn/20200608174108271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
