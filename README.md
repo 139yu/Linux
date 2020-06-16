@@ -79,9 +79,9 @@ Linux只有一个根目录，根目录下又有很多的子目录，如图所示
 - `/var`
 该目录主要用于存放系统运行以及软件运行的日志信息。具体如图所示：
 
-<img src="https://img-blog.csdnimg.cn/20200524150636450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70"
+<img src="https://img-blog.csdnimg.cn/20200524150636450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 
-<img src="https://img-blog.csdnimg.cn/20200524150648111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70"
+<img src="https://img-blog.csdnimg.cn/20200524150648111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqXzUyNDI1NjE5Mg==,size_16,color_FFFFFF,t_70">
 
 - `/dev`
 该目录包含系统所有的设备文件，具体如图所示：
